@@ -1,12 +1,14 @@
 li {
-background-color: rgb(126, 126, 126);
-padding: 5px;
+background-color: rgb(170, 165, 165);
+padding: 6px;
 border-radius: 5px;
 color: black;
 width: 100%;
 list-style-type: none;
 margin-top: 20px;
 text-align: center;
+cursor: pointer
+
 }
 
 ul{
@@ -17,12 +19,18 @@ ul{
 
 .custom-h3{
     color: black;
+    font-weight: bold;
 }
 
 
 
-header{
-    color: purple;
+.custom-header{
+    /* background-color: rgb(44, 1, 44); */
+    background-image: linear-gradient(to right, rgb(55, 87, 228), rgb(1, 0, 68));
+}
+
+.custom-card{
+    background-color: rgb(23, 23, 56);
 }
 
 .city-name{
@@ -30,8 +38,12 @@ header{
 }
 
 .current-weather{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding-left: 5px;
+}
+
+.current-weather-active{
+    border: 1px solid black;
 }
 
 
@@ -40,7 +52,11 @@ header{
 }
 
 .values{
-    
+    color:white;
+}
+
+.btn{
+    cursor: pointer
 }
 
 .icon{
