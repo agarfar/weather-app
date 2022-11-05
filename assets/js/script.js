@@ -1,6 +1,7 @@
 var weatherAPIKey = '02fcb568ae3ec5424d95745e3714ca7b';
 var searchInput = document.querySelector('#search-input');
 var searchButton = document.querySelector('.btn');
+var searchHistoryEl = document.querySelector('.search-list')
 
 var cityName;
 var currentDate;
@@ -25,34 +26,16 @@ var searchHistory;
             <li class="list-group-item">Porta ac consectetur ac</li>
             <li class="list-group-item">Vestibulum at eros</li> */
 
-// fetch("api.openweathermap.org/data/2.5/forecast?q=San Diego&appid=02fcb568ae3ec5424d95745e3714ca7b", requestOptions)
-//     .then(response => response.text())
-//     .then(result => console.log(result))
-//     .catch(error => console.log('error', error));
 
-
-// fetch(requestUrl)
-//     .then(function (response) {
-//         return response.json();
-//     })
-//     .then(function (data) {
-//         console.log('Github Repo Issues \n----------');
-//         for (var i = 0; i < data.length; i++) {
-//             console.log(data[i].url);
-//             console.log(data[i].user.login);
-//         }
-//     });
 
 var getSearchHistory = function (cityInput) {
     searchHistory = JSON.parse(localStorage.getItem('searchHistory')) ?? [];
     searchHistory.push(cityInput);
     localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
+}
 
-    // highScoreArray = JSON.parse(localStorage.getItem('highScore')) ?? [];
-    // highScoreArray.push(initialScoreArray);
-    // localStorage.setItem("highScore", JSON.stringify(highScoreArray));
-    // renderHighScores();
+var generateSearchHistory = function(){
 
 }
 
@@ -117,14 +100,14 @@ searchButton.addEventListener('click', function (event) {
 
 
 // getCityForecast('San Diego');
-console.log(forecastDate);
-console.log(forecastTemp);
-console.log(forecastWind);
-console.log(forecastHumidity);
-console.log(forecastIcon);
-// getCityCurrent('San Diego');
-// console.log('This is current date ' + currentDate);
-console.log('This is current temp ' + currentTemp);
-console.log('This is current wind ' + currentWind);
-console.log('This is current humidity ' + currentHumidity);
-console.log('This is current icon ' + currentIcon);
+// console.log(forecastDate);
+// console.log(forecastTemp);
+// console.log(forecastWind);
+// console.log(forecastHumidity);
+// console.log(forecastIcon);
+// // getCityCurrent('San Diego');
+// // console.log('This is current date ' + currentDate);
+// console.log('This is current temp ' + currentTemp);
+// console.log('This is current wind ' + currentWind);
+// console.log('This is current humidity ' + currentHumidity);
+// console.log('This is current icon ' + currentIcon);
