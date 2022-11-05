@@ -18,25 +18,35 @@ var forecastIcon = [];
 
 var searchHistory;
 
-// api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
-
-/* <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li> */
-
-
-
 var getSearchHistory = function (cityInput) {
     searchHistory = JSON.parse(localStorage.getItem('searchHistory')) ?? [];
-    searchHistory.push(cityInput);
-    localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    console.log('This is getSearchHistorys searchHistory')
+    console.log(searchHistory)
+    if (cityInput) {
+        searchHistory.push(cityInput);
+        localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+        console.log('This is getSearchHistorys searchHistory after push');
+        console.log(searchHistory);
+
+    }
+    else{
+        console.log('No input yet')
+    }
 
 }
 
-var generateSearchHistory = function(){
+var generateSearchHistory = function () {
+    getSearchHistory();
+    var template = '';
+    if (searchHistory) {
+        for (i = 0; i < searchHistory.length; i++) {
+            template += `<li>${searchHistory[i]}</li>`
+        }
+    }
+    searchHistoryEl.innerHTML = template;
 
+    // searchHistory = [];
+    // getSearchHistory();
 }
 
 var getCityCurrent = function (city) {
@@ -59,7 +69,6 @@ var getCityCurrent = function (city) {
             currentHumidity = data.main.humidity;
             currentIcon = data.weather[0].icon;
             cityName = data.name;
-            getSearchHistory(city);
         })
 
 };
@@ -69,15 +78,15 @@ var getCityForecast = function (city) {
     fetch(cityData)
         .then(function (response) {
             if (response.ok) {
-                console.log(response)
+                // console.log(response)
                 return response.json();
             }
         })
         .then(function (data) {
             // console.log('should see this message')
-            console.log(data.list);
+            // console.log(data.list);
             // sanDiego = data.list;
-            console.log(data.list.length);
+            // console.log(data.list.length);
             for (i = 3; i < data.list.length; i += 8) {
                 // console.log(data.list[i].dt_txt)
                 forecastDate.push(data.list[i].dt_txt);
@@ -93,9 +102,14 @@ var getCityForecast = function (city) {
 
 searchButton.addEventListener('click', function (event) {
     event.preventDefault();
-    getCityCurrent(searchInput.value);
-    getCityForecast(searchInput.value);
-
+    if (searchInput.value) {
+        getCityCurrent(searchInput.value);
+        getCityForecast(searchInput.value);
+        getSearchHistory(searchInput.value)
+        console.log('This is the searchHistory');
+        console.log(searchHistory);
+        generateSearchHistory();
+    }
 })
 
 
@@ -111,3 +125,5 @@ searchButton.addEventListener('click', function (event) {
 // console.log('This is current wind ' + currentWind);
 // console.log('This is current humidity ' + currentHumidity);
 // console.log('This is current icon ' + currentIcon);
+
+generateSearchHistory();
