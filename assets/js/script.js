@@ -51,7 +51,7 @@ var generateSearchHistory = function () {
 
 // Fetches current weather data and displays it on screen
 var getCityCurrent = function (city) {
-    var cityCurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherAPIKey;
+    var cityCurrent = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherAPIKey;
     fetch(cityCurrent)
         .then(function (response) {
             if (response.ok) {
@@ -94,7 +94,7 @@ var getCityCurrent = function (city) {
 // Fetches forecast data for the next 5 days and displays it on screen
 var getCityForecast = function (city) {
     var cityData =
-        "http://api.openweathermap.org/data/2.5/forecast?q=" +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
         "&units=imperial&appid=" +
         weatherAPIKey;
