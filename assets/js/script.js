@@ -108,8 +108,8 @@ var getCityForecast = function (city) {
             console.log("Grabbed Forecast Data Successfully");
             console.log(data.list);
             for (i = 0; i < data.list.length; i++) {
-                if (moment(data.list[i].dt_txt, 'YYYY-MM-DD HH:mm:ss').format("HH") === '12') {
-                    forecastDate.push(data.list[i].dt);
+                if (moment(data.list[i].dt_txt, 'YYYY-MM-DD HH:mm:ss').format("HH") === '00') {
+                    forecastDate.push(data.list[i].dt_txt);
                     forecastTemp.push(data.list[i].main.temp);
                     forecastWind.push(data.list[i].wind.speed);
                     forecastHumidity.push(data.list[i].main.humidity);
@@ -121,7 +121,7 @@ var getCityForecast = function (city) {
                 template2 += ` 
                 <div class="custom-card card me-3" style="width: 18rem;">
                         <div class="card-body">
-                            <h4 class="values">${moment(forecastDate[i], "X").format("MM/DD/YYYY")}</h4>
+                            <h4 class="values">${moment(forecastDate[i], "YYYY-MM-DD HH:mm:ss").format("MM/DD/YYYY")}</h4>
                             <img class = "mb-4" src="https://openweathermap.org/img/w/${forecastIcon[i]}.png"></img>
                             <h6 class="card-title values forecast-temp pb-2">${"Temp: " + forecastTemp[i] + "\u00B0F"}</h5>
                             <h6 class="card-title values forecast-wind pb-2">${"Wind: " + forecastWind[i] + " MPH"}</h5>
