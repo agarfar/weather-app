@@ -6,24 +6,20 @@ I created this dashboard to aid users in determining the current weather for a g
 
 ## Usage
 
-1. Access the  application at this url: 
+1. Access the  application at this url: https://agarfar.github.io/weather-app/
 
-2.
+2. Enter a city name into the search bar and click the search button to generate weather data
 
-3.
+3. Click on the listed city names from your search history to display that city's data on the page
 
+4. Search history is persistent through local storage and will display upon reload of the page
 
 ![Weather Dashboard](assets/images/Weather_Dashboard.png)
 
-
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
+N/A
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+N/A
