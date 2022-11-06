@@ -11,9 +11,7 @@
 </head>
 
 <body>
-    <!-- <div class="container-fluid">
-        <h1>Weather Dashboard</h1>
-      </div> -->
+    <!-- Header containing application title -->
     <header class="custom-header text-light p-3">
         <div class="text-center">
             <h3>Weather Dashboard</h3>
@@ -21,78 +19,31 @@
     </header>
     <div class="d-flex col-12 flex-row">
         <div class="d-flex col-3 flex-column px-3 pt-2">
+            <!-- City Search Form -->
             <form id="search-form" class="form w-100 d-grid gap-3">
                 <h3 class="custom-h3">Search for a City:</h3>
-                <input id="search-input" class="form-input w-100 p-2 rounded border border-2" type="text" placeholder="Search">
+                <!-- Search Input Field -->
+                <input id="search-input" class="form-input w-100 p-2 rounded border border-2" type="text"
+                    placeholder="Search">
+                <!-- Search Button -->
                 <button class="btn btn-info btn-block">Search</button>
             </form>
-            <!-- <div class="search-history"> -->
+            <!-- Search History -->
             <ul class="d-flex flex-column search-list">
-                <!-- <li>Static - Test</li>
-                <li>Static - Test</li> -->
-
             </ul>
-
-            <!-- </div> -->
         </div>
 
         <div class='d-flex weather col-9 flex-column' style="width: 65vw">
-            <div class='col-9 current-weather my-3' style="width: 98.5%;">
-                <!-- <h3 class="city-name">City Name: <span class="current-date"></span></h3>
-                <h5 class="current-temp  pb-2">Temp: </h5>
-                <h5 class="current-wind  pb-2">Wind: </h5>
-                <h5 class="current-humidity ">Humidity: </h5> -->
-            </div>
+            <!-- Current Weather -->
+            <div class='col-9 current-weather my-3' style="width: 98.5%;"></div>
+            <!-- 5-Day Forecast -->
             <div class='col-9 d-flex flex-column' style="width: 100%;">
-                <div class="forecast">
-                    <!-- <h3>5-Day Forecast</h3> -->
-                </div>
-
-                <div class="forecast-cards d-flex flex-row">
-                    <!-- <div class="card me-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h3>Date 1</h3>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                    </div>
-                    <div class="card me-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h3>Date 2</h3>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                    </div>
-                    <div class="card me-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h3>Date 3</h3>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                    </div>
-                    <div class="card me-3" style="width: 18rem;">
-                        <div class="card-body">
-                            <h3>Date 4</h3>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                    </div>
-                    <div class="card me-3 " style="width: 18rem;">
-                        <div class="card-body">
-                            <h3>Date 5</h3>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                            <h5 class="card-title">Card title</h5>
-                        </div>
-                    </div> -->
-                </div>
+                <div class="forecast"></div>
+                <div class="forecast-cards d-flex flex-row"></div>
             </div>
-            <!-- div for 5-day forecast -->
+
         </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"

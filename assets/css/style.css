@@ -1,3 +1,4 @@
+/* Search History List Items/Event Targets */
 li {
 background-color: rgb(170, 165, 165);
 padding: 6px;
@@ -8,9 +9,9 @@ list-style-type: none;
 margin-top: 20px;
 text-align: center;
 cursor: pointer
-
 }
 
+/* Container for list items */
 ul{
     padding-left: 0;
     margin-top: 20px;
@@ -22,9 +23,7 @@ ul{
     font-weight: bold;
 }
 
-
 .custom-header{
-    /* background-color: rgb(44, 1, 44); */
     background-image: linear-gradient(to right, rgb(55, 87, 228), rgb(1, 0, 68));
 }
 
@@ -37,14 +36,13 @@ ul{
 }
 
 .current-weather{
-    /* border: 1px solid black; */
     padding-left: 5px;
 }
 
+/*This class is applied when current weather data is generated */
 .current-weather-active{
     border: 1px solid black;
 }
-
 
 .current-temp{
     margin-top: 30px;
@@ -53,11 +51,7 @@ ul{
 .values{
     color:white;
 }
-
+/* search button */
 .btn{
     cursor: pointer
-}
-
-.icon{
-    
 }

@@ -25,6 +25,7 @@ var forecastIcon = [];
 
 var searchHistory;
 
+// Takes city name as input, gets and sets search history to local storage
 var getSearchHistory = function (cityInput) {
     searchHistory = JSON.parse(localStorage.getItem("searchHistory")) ?? [];
     if (cityInput) {
@@ -35,6 +36,8 @@ var getSearchHistory = function (cityInput) {
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     }
 };
+
+// Generates search history from local storage and displays it on screen
 var generateSearchHistory = function () {
     getSearchHistory();
     var template = "";
@@ -46,6 +49,7 @@ var generateSearchHistory = function () {
     searchHistoryEl.innerHTML = template;
 };
 
+// Fetches current weather data and displays it on screen
 var getCityCurrent = function (city) {
     var cityCurrent = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + weatherAPIKey;
     fetch(cityCurrent)
@@ -87,6 +91,7 @@ var getCityCurrent = function (city) {
         });
 };
 
+// Fetches forecast data for the next 5 days and displays it on screen
 var getCityForecast = function (city) {
     var cityData =
         "http://api.openweathermap.org/data/2.5/forecast?q=" +
@@ -135,6 +140,7 @@ var getCityForecast = function (city) {
         });
 };
 
+//Generate updated search history, as well as current and forecasted weather for a given city when clicking on search button
 searchButton.addEventListener("click", function (event) {
     event.preventDefault();
     if (searchInput.value) {
@@ -147,6 +153,7 @@ searchButton.addEventListener("click", function (event) {
     }
 });
 
+// Generate updated search history, as well as current and forecasted weather for a given city when clicking on a search history entry
 searchHistoryEl.addEventListener("click", function (event) {
     if (event.target.matches("li")) {
         getCityCurrent(event.target.innerText);
@@ -157,4 +164,5 @@ searchHistoryEl.addEventListener("click", function (event) {
     }
 });
 
+// Generate search history - if it exists - when the page is loaded
 generateSearchHistory();
