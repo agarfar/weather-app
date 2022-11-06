@@ -17,7 +17,6 @@ var currentWind;
 var currentHumidity;
 var currentIcon;
 
-
 var forecastDate = [];
 var forecastTemp = [];
 var forecastWind = [];
@@ -28,22 +27,14 @@ var searchHistory;
 
 var getSearchHistory = function (cityInput) {
     searchHistory = JSON.parse(localStorage.getItem("searchHistory")) ?? [];
-    // console.log('This is getSearchHistorys searchHistory')
-    // console.log(searchHistory)
     if (cityInput) {
         searchHistory.indexOf(cityInput) === -1
             ? searchHistory.push(cityInput)
             : console.log("This item already exists");
 
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-        // console.log('This is getSearchHistorys searchHistory after push');
-        // console.log(searchHistory);
     }
-    // else{
-    //     console.log('No input yet')
-    // }
 };
-
 var generateSearchHistory = function () {
     getSearchHistory();
     var template = "";
@@ -67,17 +58,12 @@ var getCityCurrent = function (city) {
         .then(function (data) {
             console.log("Grabbed Current Data Successfully");
             console.log(data.list);
-            // sanDiego = data.list;
-            // console.log(data.list.length);
-
             currentTemp = data.main.temp;
             currentWind = data.wind.speed;
             currentHumidity = data.main.humidity;
             currentIcon = data.weather[0].icon;
             cityName = data.name;
             currentDate = moment(data.dt, "X").format("(MM/DD/YYYY)");
-
-            // console.log('This is current date ' + currentDate);
             console.log("This is current temp " + currentTemp);
             console.log("This is current wind " + currentWind);
             console.log("This is current humidity " + currentHumidity);
@@ -96,11 +82,6 @@ var getCityCurrent = function (city) {
                 <h5 class="current-humidity ">${"Humidity: " + currentHumidity + "%"
                 }</h5>
             `;
-
-            // cityNameEl.innerHTML = cityName + ' ' + currentDate;
-            // currentTempEl.innerHTML = 'Temp: ' + currentTemp + '\u00B0F';
-            // currentWindEl.innerHTML = 'Wind: ' + currentWind + ' MPH';
-            // currentHumidtyEl.innerHTML = 'Humidity: ' + currentHumidity + '%';
             currentWeatherEl.innerHTML = template3;
             currentWeatherEl.classList.add("current-weather-active");
         });
@@ -115,30 +96,14 @@ var getCityForecast = function (city) {
     fetch(cityData)
         .then(function (response) {
             if (response.ok) {
-                // console.log(response)
                 return response.json();
             }
         })
         .then(function (data) {
             console.log("Grabbed Forecast Data Successfully");
             console.log(data.list);
-            // sanDiego = data.list;
-            // console.log(data.list.length);
-            // need to change this for loop to for in,
-            // create an array that stores dates and then loop through to see if last date grabbed != next date
-            // for (i = 3; i < data.list.length; i += 8) {
-            //     // console.log(data.list[i].dt_txt)
-            //     forecastDate.push(data.list[i].dt);
-            //     forecastTemp.push(data.list[i].main.temp);
-            //     forecastWind.push(data.list[i].wind.speed);
-            //     forecastHumidity.push(data.list[i].main.humidity);
-            //     forecastIcon.push(data.list[i].weather[0].icon);
-            // }
-
             for (i = 0; i < data.list.length; i++) {
-                // moment('2022-11-06 12:00:00', 'YYYY-MM-DD HH:mm:ss').format('H')
                 if (moment(data.list[i].dt_txt, 'YYYY-MM-DD HH:mm:ss').format("HH") === '12') {
-                    // console.log(data.list[i].dt_txt)
                     forecastDate.push(data.list[i].dt);
                     forecastTemp.push(data.list[i].main.temp);
                     forecastWind.push(data.list[i].wind.speed);
